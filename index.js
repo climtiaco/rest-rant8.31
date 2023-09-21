@@ -9,6 +9,8 @@ app.set('views', __dirname + '/views')
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 app.use(express.static('public'))
+//App.use(express.urlencoded({extended:true})) Is mainly fr Decrypting the information sent through the POST data that we send. The POST data we send is already encrypted.
+app.use(express.urlencoded({extended:true}))
 
 
 //This is where the react router is connected to the separate js file.
