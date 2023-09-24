@@ -43,3 +43,8 @@ main {
   margin-left: 20px;
   background-color: white;
 }
+
+.footer-buttons {
+  display: flex;
+  justify-content: center;
+}
