@@ -6,7 +6,7 @@ function edit_form(data) {
         <Def>
           <main>
             <h1>Add a New Place</h1>
-            <form method="POST" action={`/places/$data.place.id}?_method=PUT`}>
+            <form method="POST" action={`/places/${data.id}?_method=PUT`}>
                 <div className="row">
                     <div className="form-group col-sm-6">
                     {/*The important parts of this form are the htmlFor, id and name because these are how we find these variables in the back-end*/}

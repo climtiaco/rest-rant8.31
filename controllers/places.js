@@ -59,6 +59,28 @@ router.get('/:id', (req, res) => {
   }
 })
 
+router.put('/:id', (req, res) => {
+  let id = Number(req.params.id)
+  if (isNaN(id)) {
+    res.render('error404')
+  }
+  else if (!places[id]) {
+    res.render('error404')
+  } else {
+    if (!req.body.pic) {
+      req.body.pic = 'https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80'
+    }
+    if (!req.body.city) {
+      req.body.city = 'Unknown'
+    } 
+    if (!req.body.state) {
+      req.body.state = 'USA'
+    } 
+
+    places[id] = req.body  
+    res.redirect(`/places/${id}`)
+  }})
+
 router.delete('/:id', (req, res) => {
   let id = Number(req.params.id)
   if (isNaN(id)) {
@@ -73,6 +95,7 @@ router.delete('/:id', (req, res) => {
   }
   
 })
+
 
 
 
